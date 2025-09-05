@@ -1,0 +1,156 @@
+:root{
+    --background-clr: #1d0733;
+    --primary-clr: #2C1245;
+    --secondary-clr: #5a347b;
+    --accent-clr: #e6ccff;
+    --text-clr: #f9f9f9;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-clr);
+    background-color: black;
+}
+main{
+    min-height: 100vh;
+    padding: 20px;
+    margin: 5%;
+    background-color: var(--background-clr);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid var(--accent-clr) 5px;
+}
+h1{
+    margin-top: 100px;
+    margin-bottom: 20px;
+    font-size: 3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--accent-clr);
+}
+
+.wrapper{
+    width: 700px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#todo-input{
+    box-sizing: border-box;
+    padding: 12px 20px;
+    width: 100%;
+    background: none;
+    border: 3px solid var(--secondary-clr);
+    border-radius: 1000px;
+    font: inherit;
+    color: var(--text-clr);
+    caret-color: var(--accent-clr); /*color of cursor*/
+}
+#todo-input:focus{
+    outline: none;
+}
+
+form{
+    position: relative;
+}
+#add-new-task-btn{
+    position: absolute;
+    top:0;
+    right: 0;
+    background-color: var(--accent-clr);
+    height: 100%;
+    padding: 0 30px;
+    border: none;
+    border-radius: 1000px;
+    font-weight: 600;
+    font-size: 1.14rem;
+    color: var(--background-clr);
+    cursor: pointer;
+}
+
+.todo{
+    margin-bottom: 10px;
+    padding: 0 16px;
+    background-color: var(--primary-clr);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+}
+
+
+.todo .todo-text{
+    padding: 15px; /*The text determine sthe height of it thats why todo padding= 0 before*/
+    padding-right: 0;
+    display: flex;
+    flex-grow: 1; /*It takes max spac ein parent element*/
+    transition: 200ms ease;
+}
+.delete-btn{
+    padding: 3px;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-btn svg{
+    transition: 200ms ease;
+}
+.delete-btn:hover svg{
+    fill: var(--accent-clr);    
+}
+
+.custom-checkbox{
+    border: 2px solid var(--accent-clr);
+    border-radius: 50%;
+    min-height: 20px;
+    min-width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    transition: 200ms ease;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked ~ .custom-checkbox{
+    background-color: var(--accent-clr);
+}
+input[type="checkbox"]:checked ~ .custom-checkbox svg{
+    fill: var(--background-clr);
+}
+input[type="checkbox"]:checked ~ .todo-text{
+    text-decoration: line-through;
+    color: var(--secondary-clr);
+}
+input[type="checkbox"]{
+    display: none;
+}
+
+@media (max-width: 500px) {
+    html{
+        font-size: 12pt;
+    }
+    #add-new-task-btn{
+        position: unset;
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 30px;
+        padding: 15px;
+        height: auto;
+    }
+
+    h1{
+        margin-top: 50px;
+        font-size: 15vw;
+    }
+}
